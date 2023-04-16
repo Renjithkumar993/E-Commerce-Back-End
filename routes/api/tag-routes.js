@@ -46,12 +46,12 @@ router.put("/:id", async (req, res) => {
   try {
     const updateTag = await Tag.update(
       {
-        tag_name: req.body.tag_name
+        tag_name: req.body.tag_name,
       },
       {
         where: {
-          id : req.params.id
-        }
+          id: req.params.id,
+        },
       }
     );
     res.status(200).json(updateTag);
@@ -65,13 +65,13 @@ router.delete("/:id", async (req, res) => {
 
   try {
     const delTag = await Tag.destroy({
-      where : {
-        id : req.params.id
-      }
-    })
-    res.status(200).json(delTag)
-  }catch(err){
-    res.status(500).json(err)
+      where: {
+        id: req.params.id,
+      },
+    });
+    res.status(200).json(delTag);
+  } catch (err) {
+    res.status(500).json(err);
   }
 });
 
